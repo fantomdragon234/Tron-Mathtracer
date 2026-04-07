@@ -11,7 +11,23 @@ body {
 #root {
     width: 100vw;
     height: 100vh;
+    position: relative;
 }
+
+/* Radial vignette to darken edges — enhances the premium 3D depth illusion */
+#root::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background: radial-gradient(
+        ellipse at 50% 50%,
+        transparent 45%,
+        rgba(2, 4, 8, 0.72) 100%
+    );
+}
+
 
 .ui-container {
     position: absolute;

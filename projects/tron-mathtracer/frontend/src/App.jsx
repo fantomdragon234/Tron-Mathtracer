@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Scene from "./components/Scene";
 import UI from "./components/UI";
+import TriangleBackground from "./components/TriangleBackground";
 import { parse } from "mathjs";
 
 export default function App() {
@@ -74,6 +75,7 @@ export default function App() {
 
   return (
     <>
+      <TriangleBackground />
       <Scene 
         key={`${exprStr}-${resetKey}`} 
         func={func} 

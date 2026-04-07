@@ -26,7 +26,10 @@ function Animator({ func, running, showAxes }) {
 
 export default function Scene({ func, running, showGrid, showAxes }) {
   return (
-    <Canvas gl={{ localClippingEnabled: true, preserveDrawingBuffer: true }}>
+    <Canvas
+      gl={{ localClippingEnabled: true, preserveDrawingBuffer: true, alpha: true }}
+      style={{ background: "transparent", position: "relative", zIndex: 1 }}
+    >
       <OrthographicCamera makeDefault position={[0, 0, 20]} zoom={35} near={0.1} far={100} />
       <OrbitControls
         makeDefault
@@ -44,7 +47,6 @@ export default function Scene({ func, running, showGrid, showAxes }) {
           TWO: THREE.TOUCH.DOLLY_PAN
         }}
       />
-      <color attach="background" args={["#05080c"]} />
       {showGrid && <Grid />}
       <Animator func={func} running={running} showAxes={showAxes} />
     </Canvas>
